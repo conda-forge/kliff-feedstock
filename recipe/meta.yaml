@@ -23,6 +23,7 @@ requirements:
     - pybind11
   run:
     - python
+    - pip
     - scipy
     - pybind11
     - pytest
@@ -31,6 +32,8 @@ requirements:
 test:
   imports:
     - kliff
+  commands:
+    - pip check
 
 about:
   home: https://github.com/mjwen/kliff
