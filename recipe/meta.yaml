@@ -23,6 +23,7 @@ requirements:
     - pybind11
   run:
     - python
+    - pip
     - scipy
     - pybind11
     - pytest
