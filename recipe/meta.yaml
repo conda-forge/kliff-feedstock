@@ -28,6 +28,7 @@ requirements:
     - pybind11
     - pytest
     - kimpy
+    - requests
 
 test:
   imports:
