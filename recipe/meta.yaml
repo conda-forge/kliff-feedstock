@@ -30,6 +30,7 @@ requirements:
     - kimpy
     - requests
     - pyyaml
+    - monty
 
 test:
   imports:
