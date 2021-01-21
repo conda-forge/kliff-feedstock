@@ -29,6 +29,7 @@ requirements:
     - pytest
     - kimpy
     - requests
+    - pyyaml
 
 test:
   imports:
