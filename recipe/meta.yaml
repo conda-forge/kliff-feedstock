@@ -1,5 +1,5 @@
 {% set name = "kliff" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 79ecc27f24a33e1cb16a22e7d2737bb5d743b997b4f6e6ad6e9cfeee042b5b81
+  sha256: d007d2bbcac9005276676d10bff719554f814d6496389440b90cc58f093e4987
 
 build:
   number: 0
