@@ -1,5 +1,5 @@
 {% set name = "kliff" %}
-{% set version = "0.4.4" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0644eebadfe21b77389eaa6e001ebb166bd95ed06993c309293190991ff76980
+  sha256: a69be927aa3c22b166e530fcbdfd74b192229d04efc14823deadf3b509d2d560
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win or py<35]
+  skip: true  # [win or py<35 or py>312]
 
 requirements:
   build:
@@ -37,6 +37,8 @@ requirements:
     - pyyaml
     - monty
     - loguru
+    - numpy <2.0
+    - ase <3.23
 
 test:
   imports:
