@@ -1,16 +1,16 @@
 {% set name = "kliff" %}
-{% set version = "0.4.3" %}
+{% set version = "0.4.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 35a2e089459ade5324cce9ba3bbf5a94908f21864883c6c0dda8320acc674333
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 0644eebadfe21b77389eaa6e001ebb166bd95ed06993c309293190991ff76980
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win or py<35]
 
