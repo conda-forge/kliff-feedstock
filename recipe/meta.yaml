@@ -38,6 +38,7 @@ requirements:
     - monty
     - loguru
     - numpy <2.0
+    - ase
 
 test:
   imports:
