@@ -37,6 +37,7 @@ requirements:
     - pyyaml
     - monty
     - loguru
+    - numpy <2.0
 
 test:
   imports:
