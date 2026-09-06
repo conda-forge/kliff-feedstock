@@ -1,0 +1,70 @@
+schema_version: 1
+
+context:
+  name: kliff
+  version: "1.0.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: a69be927aa3c22b166e530fcbdfd74b192229d04efc14823deadf3b509d2d560
+
+build:
+  number: 1
+  skip: win or match(python, "<3.5") or match(python, ">3.12")
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: pybind11
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+  host:
+    - python
+    - pip
+    - setuptools
+    - pybind11
+  run:
+    - python
+    - pip
+    - scipy
+    - pybind11
+    - pytest
+    - kimpy
+    - requests
+    - pyyaml
+    - monty
+    - loguru
+    - numpy <2.0
+    - ase <3.23
+
+tests:
+  - python:
+      imports:
+        - kliff
+      pip_check: true
+
+about:
+  license: CDDL-1.0
+  license_file: LICENSE
+  summary: KIM-based Learning-Integrated Fitting Framework (KLIFF).
+  description: |
+    KLIFF is an interatomic potential fitting package that can be used to
+    fit physics-motivated (PM) potentials, as well as machine learning
+    potentials such as the neural network (NN) models.
+  homepage: https://github.com/mjwen/kliff
+  repository: https://github.com/mjwen/kliff
+  documentation: https://kliff.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
+    - mjwen
