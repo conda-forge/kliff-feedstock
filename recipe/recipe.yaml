@@ -13,18 +13,17 @@ source:
   sha256: a69be927aa3c22b166e530fcbdfd74b192229d04efc14823deadf3b509d2d560
 
 build:
-  number: 1
+  number: 2
   skip: win or match(python, "<3.5") or match(python, ">3.12")
   script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: pybind11
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - pybind11
     - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
   host:
